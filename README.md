@@ -102,8 +102,8 @@ In both model types, logistic regression and gradient boosted decision trees, im
 
 Best case out-of-time performance of each model is as follows:
 
-| Model	Accuracy | Precision | Recall | F1 score | 
-| ---   | ---   | ---   | ---   |
+| Model	| Accuracy | Precision | Recall | F1 score | 
+| ---   | ---   | ---   | ---   | ---   |
 | Logistic Regression at 22 | 0.9194 | 0.4932 | 0.3651 | 0.4196 |
 | Gradient Boosted at 27 | 0.9011 | 0.3819 | 0.3525 | 0.3666 |
 
