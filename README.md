@@ -4,7 +4,7 @@ This project creates machine learning model for default prediction, using logist
 
 ## Motivation
 
-This project came from [Kaggle](https://www.kaggle.com/datasets/sergionefedov/credit-risk-dataset-50k-loans-10-sectors). I aim to use data from file “loan_portfolio.csv” to create model to predict loan default, which is in column “defaulted”, using logistic regression or gradient boosted decision trees. 
+This project came from [Kaggle](https://www.kaggle.com/datasets/sergionefedov/credit-risk-dataset-50k-loans-10-sectors). I aim to use data from file “loan_portfolio.csv” to create model to predict loan default, which is in column *defaulted*, using logistic regression or gradient boosted decision trees. 
 
 Some input features are calculated from other features, namely *pd_annual*, *lgd*, *el*, *unexpected_loss*, and *rwa*, which came from feature engineering. These calculated input features may be more suitable for machine learning, or they may produce redundancy without contribute more to accuracy. In this project, I will try remove less important feature to see whether these engineered features worth keeping or they just introduce redundancy.
 
@@ -26,12 +26,12 @@ After download the dataset from Kaggle. All process is on **Python** package **P
 
 1. I use absolute of weight as feature Importance of the logistic regression. The results are as follows:
 
-<img src="picture/logis_important.png"/>
+<img src="picture/logis_importance.png"/>
 
 We found that input features that produced by one-hot encoder tend to have similar absolute weight. Such features are:
--	sector: Energy, Telecom, Consumer, Financials, Industrials, Healthcare, Technology, Utilities, Retail, Real_Estate
--	loan_type: term_loan, mortgage, revolving, bond, lease
--	collateral: secured, unsecured, partially_secured
+    -	sector: Energy, Telecom, Consumer, Financials, Industrials, Healthcare, Technology, Utilities, Retail, Real_Estate
+    -	loan_type: term_loan, mortgage, revolving, bond, lease
+    -	collateral: secured, unsecured, partially_secured
 We may consider this similarity as weight of group. In this case, collateral has more weight than sector and loan_type, which seem to mixed between each other.
 
 2. By remove less important features, accuracy of prediction from train and test data sets are as follows:
@@ -56,7 +56,7 @@ The intercept is slowly decrease before the model gain more accuracy in test dat
 
 5. Jump in weights of one-hot encoded features
 
-   1) Consider the features the produced by one-hot encoding on collateral. Weight of these features are as follows:
+   - Consider the features the produced by one-hot encoding on collateral. Weight of these features are as follows:
 
 <img src="picture/logis_collat.png"/>
 
@@ -64,11 +64,11 @@ We see that partially secured is nearly as good as secured collateral, so these 
 
 This high jump came from reduction of dimension. For example, let the feature *secured* represented as vector (1,0,0) *partially_secured* with vector (0,1,0) and *unsecured* with vector (0,0,1). Because of these features produced by one-hot encoder, vector (0,0,0) was never used. When the feature with the least absolute weight was eliminated, which is *partially_secured* in this case, the encoded vectors were changed. After elimination, *secured* was represented with vector (1,0), and *unsecured* with vector (0,1), while *partially_secured* take place of (0,0). Weights of the remained feature need to compensated for the eliminated one, and lead to high jump in weight. 
 
-   2) This high jump also occurred on other features that produced by one-hot encoding as well. For *loan_type*, the jump happened at 16th feature elimination (at the red dotted line), which is *lease*.
+   - This high jump also occurred on other features that produced by one-hot encoding as well. For *loan_type*, the jump happened at 16th feature elimination (at the red dotted line), which is *lease*.
 
 <img src="picture/logis_loan_type.png"/>
 
-   3) For *sector*, the jump happened at 8th feature elimination (at the blue dotted line), which is *Industrials*.
+   - For *sector*, the jump happened at 8th feature elimination (at the blue dotted line), which is *Industrials*.
 
 <img src="picture/logis_sector.png"/>
 
@@ -103,7 +103,7 @@ In both model types, logistic regression and gradient boosted decision trees, im
 Best case out-of-time performance of each model is as follows:
 
 | Model	Accuracy | Precision | Recall | F1 score | 
-| ---   | ---   | ---   | ---   | ---   |
+| ---   | ---   | ---   | ---   |
 | Logistic Regression at 22 | 0.9194 | 0.4932 | 0.3651 | 0.4196 |
 | Gradient Boosted at 27 | 0.9011 | 0.3819 | 0.3525 | 0.3666 |
 
