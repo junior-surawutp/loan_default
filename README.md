@@ -107,7 +107,7 @@ Best case out-of-time performance of each model is as follows:
 | Logistic Regression at 22 | 0.9194 | 0.4932 | 0.3651 | 0.4196 |
 | Gradient Boosted at 27 | 0.9011 | 0.3819 | 0.3525 | 0.3666 |
 
-By accuracy alone, logistic regression is better model. However, precision in this case is undefined at 30, because there is not true positive and fault positive. Furthermore, when take imbalance into account which defaulted cases are minority of overall data, F1 score is more suitable. The F1 score shows that gradient boosted is better model. 
+By accuracy alone, logistic regression is better model. However, precision in this case is undefined at 30, because there is not true positive and fault positive. Furthermore, when take imbalance into account which defaulted cases are minority of overall data, F1 score is more suitable. The F1 score shows that logistic regression <!-- gradient boosted --> is still better model. 
 
 Note that model 22 of the logistic regression was chosen because it is the point just before recall and F1 score of test data decreased. For gradient boosted model, the model 27 was chosen because it is the last point before train F1 score began to decline sharply. Even though test F1 score kept rising past this point, the rise is likely unreliable fluctuation from the small number of defaulted cases in the test set, not genuine improvement.
 
