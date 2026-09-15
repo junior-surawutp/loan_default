@@ -123,4 +123,4 @@ When we eliminate features based on importance priorities, weight of each featur
 
 ## Author
 
-I’m Surawut Pawutinan, and my nickname is Junior. This is my [LinkedIn](https://www.linkedin.com/in/surawut-paw-junior/), and my [GitHub](https://github.com/junior-surawutp).
+I’m Surawut Pawutinan, and my nickname is Junior. This is my [LinkedIn](https://www.linkedin.com/in/surawut-paw-junior/), and my [GitHub](https://github.com/junior-surawutp). My e-mail is surawut.paw@gmail.com.
